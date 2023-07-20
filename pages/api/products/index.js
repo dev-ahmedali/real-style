@@ -1,10 +1,12 @@
 import nc from "next-connect"
-import dbConnect from "@/backend/config/dbConnect"
-import { newProduct } from "@/backend/controllers/productController"
-
+import dbConnect from "@/backend/config/dbConnect";
+import { getProducts, newProduct } from "@/backend/controllers/productController";
 
 const handler = nc()
 
-dbConnect()
+dbConnect();
 
-handler.post(newProduct)
+handler.get(getProducts);
+handler.post(newProduct);
+
+export default handler;
